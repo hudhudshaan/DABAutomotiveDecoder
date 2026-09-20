@@ -50,7 +50,7 @@ TESTS = \
 
 .PHONY: all clean test
 
-all: $(LIB) harness/dab_test_harness test_streams/generate_streams $(TESTS)
+all: $(LIB) harness/dab_test_harness harness/automotive_decoder_runner test_streams/generate_streams $(TESTS)
 
 $(LIB): $(OBJ)
 	$(AR) rcs $@ $(OBJ)
@@ -59,6 +59,9 @@ $(LIB): $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 harness/dab_test_harness: harness/dab_test_harness.c $(LIB)
+	$(CC) $(CFLAGS) $(INCLUDES) $< -L. -ldab_decoder -o $@
+
+harness/automotive_decoder_runner: harness/automotive_decoder_runner.c $(LIB)
 	$(CC) $(CFLAGS) $(INCLUDES) $< -L. -ldab_decoder -o $@
 
 test_streams/generate_streams: test_streams/generate_streams.c
@@ -75,4 +78,5 @@ test: $(TESTS) test_streams/generate_streams
 	@echo "--- All Tests Successfully Passed! ---"
 
 clean:
-	rm -f $(OBJ) $(LIB) harness/dab_test_harness test_streams/generate_streams $(TESTS)
+	rm -f $(OBJ) $(LIB) harness/dab_test_harness harness/automotive_decoder_runner test_streams/generate_streams $(TESTS)
+	rm -f harness/*.exe test_streams/*.exe tests/*.exe *.exe

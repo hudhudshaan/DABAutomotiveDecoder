@@ -50,6 +50,7 @@ ar rcs libdab_decoder.a "${OBJS[@]}"
 
 echo "[3/4] Compiling Executables & Test Suite..."
 gcc $CFLAGS $INCLUDES harness/dab_test_harness.c -L. -ldab_decoder -o harness/dab_test_harness.exe
+gcc $CFLAGS $INCLUDES harness/automotive_decoder_runner.c -L. -ldab_decoder -o harness/automotive_decoder_runner.exe
 gcc $CFLAGS test_streams/generate_streams.c -o test_streams/generate_streams.exe
 
 TEST_APPS=(
@@ -89,6 +90,14 @@ harness/dab_test_harness.exe --input test_streams/scenario_channel_switch.au \
     --output test_streams/out_scenario.pcm \
     --wav test_streams/out_scenario.wav \
     --log test_streams/out_scenario.log
+
+echo ""
+echo "================================================================="
+echo "  RUNNING AUTOMOTIVE DECODER RUNNER ON BROADCAST AU STREAM       "
+echo "================================================================="
+if [ -f "music/stream_core24k_sbr48k.au" ]; then
+    harness/automotive_decoder_runner.exe music/stream_core24k_sbr48k.au test_streams/decoded_music_runner.wav
+fi
 
 echo ""
 echo "================================================================="
