@@ -1,0 +1,57 @@
+# --- Python ---
+__pycache__
+.py[cod]
+$py.class
+.so
+.Python
+env
+build
+develop-eggs
+dist
+downloads
+eggs
+.eggs
+lib
+lib64
+parts
+sdist
+var
+wheels
+sharepython-wheels
+.egg-info
+.installed.cfg
+.egg
+MANIFEST
+
+# --- Virtual Environments ---
+.venv
+venv
+ENV
+env.bak
+venv.bak
+pip-log.txt
+pip-delete-this-directory.txt
+
+# --- Audio Binaries & Executables ---
+.au
+.mp3
+.wav
+.flac
+.ogg
+.m4a
+.wma
+.aac
+.exe
+
+# --- Environments & Secrets ---
+.env
+.venv
+.env.secrets
+
+# --- IDEs and Text Editors ---
+.vscode
+.idea
+.swp
+.swo
+.DS_Store
+Thumbs.db
