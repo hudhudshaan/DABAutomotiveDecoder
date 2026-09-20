@@ -20,7 +20,7 @@ The verification framework consists of four pillars:
 To ensure the functionality from **MS-1 through MS-4** is functioning properly, inspect the following output files located in `test_streams/` and `tests/`:
 
 ```text
-C:\PersonalData\Shaan\Projects\dab_automotive_decoder\
+dab_automotive_decoder/
 ├── test_streams/
 │   ├── out_scenario.log   <-- [KEY FILE #1] Frame telemetry log (Proves MS-3 & MS-4)
 │   ├── out_scenario.wav   <-- [KEY FILE #2] Auditory & waveform proof (No pops/clicks)
@@ -200,8 +200,8 @@ Each test executable in `tests/` can be run independently to test specific miles
 
 ### Option A: The Automated 1-Click Method (`build_and_test.sh`)
 ```bash
-# On Windows PowerShell:
-C:\msys64\usr\bin\bash.exe -c "cd /c/PersonalData/Shaan/Projects/dab_automotive_decoder && ./build_and_test.sh"
+# On Windows PowerShell (from project root):
+C:\msys64\usr\bin\bash.exe -c "./build_and_test.sh"
 
 # On Linux / MSYS2 terminal:
 ./build_and_test.sh
@@ -209,14 +209,14 @@ C:\msys64\usr\bin\bash.exe -c "cd /c/PersonalData/Shaan/Projects/dab_automotive_
 
 ### Option B: Running Individual Unit Tests via Make
 ```bash
-cd C:/PersonalData/Shaan/Projects/dab_automotive_decoder
+# From project root:
 make test
 ```
 
 ### Option C: Running via CMake / CTest
 ```bash
-cd C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build
-ctest --output-on-failure
+# From project root:
+ctest --test-dir build --output-on-failure
 ```
 
 ### Option D: Running the Test Harness CLI Manually

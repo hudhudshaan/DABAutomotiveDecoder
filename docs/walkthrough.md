@@ -2,9 +2,9 @@
 
 ## 1. Executive Summary
 All DAB Classic (MPEG-1 Audio Layer II / MUSICAM) and DAB+ (HE-AAC v2 / ETSI TS 102 563) standard configurations have been implemented, tested, and validated end-to-end. Source audio, reference streams, and decoded outputs are placed in their respective target locations:
-- **Reference & Broadcast Streams**: Located in `C:\Users\Irshad\Music\`
-- **Decoded Audio Files & Binaries**: Located in `C:\PersonalData\Shaan\Projects\dab_automotive_decoder\build\`
-- **Delivery Package Zip**: Updated at `C:\PersonalData\Shaan\Projects\dab_automotive_decoder_package.zip`
+- **Reference & Broadcast Streams**: Located in `music/`
+- **Decoded Audio Files & Binaries**: Located in `build/`
+- **Delivery Package Zip**: Updated at `dab_automotive_decoder_package.zip`
 
 ---
 
@@ -46,7 +46,7 @@ All 8 automated test suites pass with 100% success rate:
 
 ## 4. Delivery Package Contents (`dab_automotive_decoder_package.zip`)
 
-The updated archive at `C:\PersonalData\Shaan\Projects\dab_automotive_decoder_package.zip` includes:
+The updated archive at `dab_automotive_decoder_package.zip` includes:
 1. **Public API & Headers**: `include/dab_decoder.h`
 2. **Clean IP Implementations**: `src/` (core, codec_mp2, codec_aac, error_concealment, neon_opt)
 3. **Pre-built Static Library**: `build/libdab_decoder.a` (Zero dynamic memory allocation, MISRA-C compliant)

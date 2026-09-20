@@ -39,7 +39,7 @@ The repository provides a fully automated PowerShell pipeline script that detect
 Open Windows PowerShell and navigate to the project directory:
 
 ```powershell
-cd C:\PersonalData\Shaan\Projects\dab_automotive_decoder
+# From the project repository root:
 .\run_pipeline.ps1
 ```
 
@@ -120,12 +120,12 @@ You can use either an existing audio file from your Windows drive or record a li
 WSL accesses Windows drives directly via `/mnt/c/`. To extract and normalize a 30-second clip to 48 kHz 16-bit stereo PCM:
 
 ```bash
-# Example: One Voice Children's Choir song from Music folder:
-ffmpeg -i "/mnt/c/Users/Irshad/Music/One_Voice_Children_s_Choir_-_Believer_Thunder__CeeNaija.com_.mp3" \
+# Example: One Voice Children's Choir song from music/ folder:
+ffmpeg -i "music/One_Voice_Children_s_Choir_-_Believer_Thunder__CeeNaija.com_.mp3" \
        -t 30 -ar 48000 -ac 2 believer.wav
 
 # Example: Tamil song:
-ffmpeg -i "/mnt/c/Users/Irshad/Music/tamil_song.mp3" \
+ffmpeg -i "music/tamil_song.mp3" \
        -t 30 -ar 48000 -ac 2 tamil_audio.wav
 ```
 
@@ -167,14 +167,14 @@ odr-audioenc -i "believer.wav" -o "believer_dab_plus.au" -b 80 -r 48000 -c 2
 
 ---
 
-### Step 3.5: Copy the `.au` Stream to the Windows Project Build Tree
+### Step 3.5: Copy the `.au` Stream to the Project Directory
 
-From your WSL terminal, copy the generated `.au` file into your Windows project directory:
+From your terminal, copy the generated `.au` file into your project:
 
 ```bash
-cp believer_dab_plus.au /mnt/c/PersonalData/Shaan/Projects/dab_automotive_decoder/build/
-# Or copy to repository root:
-cp believer_dab_plus.au /mnt/c/PersonalData/Shaan/Projects/dab_automotive_decoder/
+cp believer_dab_plus.au ./build/
+# Or copy to music folder:
+cp believer_dab_plus.au ./music/
 ```
 
 ---
@@ -188,10 +188,9 @@ There are two tools available to decode your `.au` bitstream:
 Ideal for decoding any AU stream directly to a standard 48 kHz 16-bit stereo WAV file:
 
 ```powershell
-cd C:\PersonalData\Shaan\Projects\dab_automotive_decoder
-
+# From project repository root:
 # Syntax: .\build\automotive_decoder_runner.exe <input.au> <output.wav>
-.\build\automotive_decoder_runner.exe .\build\believer_dab_plus.au .\build\decoded_believer.wav
+.\build\automotive_decoder_runner.exe music\stream_core24k_sbr48k.au build\decoded_output.wav
 ```
 
 **Expected Terminal Output:**
@@ -211,16 +210,14 @@ The test harness provides comprehensive automotive telemetry logging (frame CRC 
 
 #### Decoding a DAB+ Stream (HE-AAC v2):
 ```powershell
-cd C:\PersonalData\Shaan\Projects\dab_automotive_decoder\build
-
-.\dab_test_harness.exe --input "believer_dab_plus.au" --codec aac --sample-rate 48000 --wav "out_believer.wav" --log "out_believer.log"
+cd build
+.\dab_test_harness.exe --input "..\music\stream_core24k_sbr48k.au" --codec aac --sample-rate 48000 --wav "out_decoded.wav" --log "out_decoded.log"
 ```
 
 #### Decoding a DAB Classic Stream (MP2 / MPEG-1 Layer II):
 ```powershell
-cd C:\PersonalData\Shaan\Projects\dab_automotive_decoder\build
-
-.\dab_test_harness.exe --input "classic_mp2.au" --codec mp2 --sample-rate 48000 --wav "out_mp2.wav" --log "out_mp2.log"
+cd build
+.\dab_test_harness.exe --input "..\test_streams\clean_mp2_48k_stereo.au" --codec mp2 --sample-rate 48000 --wav "out_mp2.wav" --log "out_mp2.log"
 ```
 
 ---
@@ -242,7 +239,7 @@ cd C:\PersonalData\Shaan\Projects\dab_automotive_decoder\build
 ## 6. How Host Applications Link Against `libdab_decoder.a`
 
 The static library is generated directly inside the `build\` folder:
-`C:\PersonalData\Shaan\Projects\dab_automotive_decoder\build\libdab_decoder.a`
+`build/libdab_decoder.a`
 
 ### Linking via GCC / Clang:
 
@@ -259,10 +256,10 @@ If integrating into another CMake project:
 
 ```cmake
 # Add include directory
-target_include_directories(my_automotive_app PRIVATE "C:/PersonalData/Shaan/Projects/dab_automotive_decoder/include")
+target_include_directories(my_automotive_app PRIVATE "${DAB_DECODER_ROOT}/include")
 
 # Add library search path and link
-target_link_directories(my_automotive_app PRIVATE "C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build")
+target_link_directories(my_automotive_app PRIVATE "${DAB_DECODER_ROOT}/build")
 target_link_libraries(my_automotive_app PRIVATE dab_decoder)
 ```
 

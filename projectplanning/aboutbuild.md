@@ -133,9 +133,8 @@ The three files adapt to these environments as follows:
 ## 5. Step-by-Step Build Instructions
 
 ### 5.1 Using `run_pipeline.ps1` (1-Click Native Windows Pipeline)
-* **From Windows PowerShell:**
+* **From Windows PowerShell (in repository root):**
   ```powershell
-  cd C:\PersonalData\Shaan\Projects\dab_automotive_decoder
   .\run_pipeline.ps1
   ```
   * Automatically sets up MSYS2 UCRT64 toolchain and CMake.
@@ -145,19 +144,17 @@ The three files adapt to these environments as follows:
 ### 5.2 Using `build_and_test.sh` (Linux / WSL / MSYS2 Turn-Key Script)
 * **From Windows PowerShell (using MSYS2):**
   ```powershell
-  C:\msys64\usr\bin\bash.exe -c "cd /c/PersonalData/Shaan/Projects/dab_automotive_decoder && ./build_and_test.sh"
+  C:\msys64\usr\bin\bash.exe -c "./build_and_test.sh"
   ```
 * **From MSYS2 / Git Bash / Linux / WSL Terminal:**
   ```bash
-  cd /c/PersonalData/Shaan/Projects/dab_automotive_decoder
   chmod +x build_and_test.sh
   ./build_and_test.sh
   ```
 
-### 5.2 Using `Makefile`
-* **On Laptop:**
+### 5.3 Using `Makefile`
+* **On Host (in repository root):**
   ```bash
-  cd C:/PersonalData/Shaan/Projects/dab_automotive_decoder
   make clean
   make all
   ```
@@ -168,13 +165,11 @@ The three files adapt to these environments as follows:
   make clean && make all
   ```
 
-### 5.3 Using `CMakeLists.txt`
-* **On Laptop:**
+### 5.4 Using `CMakeLists.txt`
+* **On Host (in repository root):**
   ```bash
-  cd C:/PersonalData/Shaan/Projects/dab_automotive_decoder
-  mkdir build && cd build
-  cmake .. -DCMAKE_BUILD_TYPE=Release
-  cmake --build .
+  cmake -B build -DCMAKE_BUILD_TYPE=Release
+  cmake --build build
   ```
 * **Cross-Compiling for Odroid N2+:**
   ```bash

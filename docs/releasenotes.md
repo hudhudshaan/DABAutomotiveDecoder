@@ -63,12 +63,12 @@ All six standard audio profiles were validated end-to-end from source bitstreams
 
 | Stream / Scenario | Standard Profile | Sampling Rate | Channels | Processed Units | Output Audio File | Duration | Audio Quality Score | CRC Errors | Status |
 | :--- | :---: | :---: | :---: | :---: | :--- | :---: | :---: | :---: | :---: |
-| `stream_core16k_sbr32k.au` | DAB+ Core 16k + SBR | 32 kHz | Stereo | 500 AUs | `build/decoded_core16k_sbr32k.wav` | 30.00 s | Optimal | 0 | **PASS** |
-| `stream_core24k_sbr48k.au` | DAB+ Core 24k + SBR | 48 kHz | Stereo | 750 AUs | `build/decoded_core24k_sbr48k.wav` | 30.00 s | Optimal | 0 | **PASS** |
-| `stream_core32k_standalone.au`| DAB+ Standalone | 32 kHz | Stereo | 1,000 AUs | `build/decoded_core32k_standalone.wav` | 30.00 s | Optimal | 0 | **PASS** |
-| `stream_core48k_standalone.au`| DAB+ Standalone | 48 kHz | Stereo | 1,500 AUs | `build/decoded_core48k_standalone.wav` | 30.00 s | Optimal | 0 | **PASS** |
-| `clean_mp2_24k_mono.au` | DAB Classic Half-rate | 24 kHz | Mono | 500 Frames | `build/decoded_mp2_24k_mono.wav` | 12.00 s | **100 / 100** | 0 | **PASS** |
-| `clean_mp2_48k_stereo.au` | DAB Classic Full-rate | 48 kHz | Stereo | 1,000 Frames | `build/decoded_mp2_48k_stereo.wav` | 24.00 s | **100 / 100** | 0 | **PASS** |
+| `music/stream_core16k_sbr32k.au` | DAB+ Core 16k + SBR | 32 kHz | Stereo | 500 AUs | `build/decoded_core16k_sbr32k.wav` | 30.00 s | Optimal | 0 | **PASS** |
+| `music/stream_core24k_sbr48k.au` | DAB+ Core 24k + SBR | 48 kHz | Stereo | 750 AUs | `build/decoded_core24k_sbr48k.wav` | 30.00 s | Optimal | 0 | **PASS** |
+| `music/stream_core32k_standalone.au`| DAB+ Standalone | 32 kHz | Stereo | 1,000 AUs | `build/decoded_core32k_standalone.wav` | 30.00 s | Optimal | 0 | **PASS** |
+| `music/stream_core48k_standalone.au`| DAB+ Standalone | 48 kHz | Stereo | 1,500 AUs | `build/decoded_core48k_standalone.wav` | 30.00 s | Optimal | 0 | **PASS** |
+| `test_streams/clean_mp2_24k_mono.au` | DAB Classic Half-rate | 24 kHz | Mono | 500 Frames | `build/decoded_mp2_24k_mono.wav` | 12.00 s | **100 / 100** | 0 | **PASS** |
+| `test_streams/clean_mp2_48k_stereo.au` | DAB Classic Full-rate | 48 kHz | Stereo | 1,000 Frames | `build/decoded_mp2_48k_stereo.wav` | 24.00 s | **100 / 100** | 0 | **PASS** |
 
 ### Acoustic & Signal Integrity Verification
 - **Output Sample Counts:** Exact sample match with theoretical duration ($N = \text{sample\_rate} \times \text{duration}$).
@@ -114,7 +114,7 @@ The decoder suite includes 8 automated regression test binaries covering unit, i
 
 ## 7. Deliverables & File Hierarchy
 
-The release package is bundled in `C:\PersonalData\Shaan\Projects\dab_automotive_decoder_package.zip`:
+The release package is bundled in `dab_automotive_decoder_package.zip`:
 
 ```text
 dab_automotive_decoder_package.zip
@@ -129,6 +129,7 @@ dab_automotive_decoder_package.zip
 ├── harness/
 │   ├── automotive_decoder_runner.c       # Production CLI runner for raw .au broadcast streams
 │   └── dab_test_harness.c                # Comprehensive test runner with MIPS/metrics logging
+├── music/                                # Broadcast .au streams, reference .wav files, source mp3
 ├── build/
 │   ├── libdab_decoder.a                  # Pre-compiled static library (MISRA-C / ISO C99)
 │   ├── automotive_decoder_runner.exe     # Pre-compiled production runner binary

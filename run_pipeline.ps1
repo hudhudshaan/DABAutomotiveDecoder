@@ -6,9 +6,9 @@
 $env:PATH = "C:\msys64\ucrt64\bin;C:\msys64\usr\bin;" + $env:PATH
 
 # 1. Force navigate to project folder and initialize build tree
-cd C:\PersonalData\Shaan\Projects\dab_automotive_decoder
+Set-Location $PSScriptRoot
 if (-not (Test-Path "build")) { New-Item -ItemType Directory "build" | Out-Null }
-cd build
+Set-Location "$PSScriptRoot\build"
 
 # 2. Wipe old cache attempts completely to ensure a clean slate
 if (Test-Path "CMakeCache.txt") { Remove-Item -Force "CMakeCache.txt" }
@@ -42,7 +42,7 @@ Write-Host "--> Executing stream decoder pipeline..." -ForegroundColor Cyan
 if (Test-Path ".\automotive_decoder_runner.exe") {
     .\automotive_decoder_runner.exe "english_dab_plus.au" "decoded_output.wav"
     Write-Host "--> PIPELINE SUCCESSFUL!" -ForegroundColor Green
-    Write-Host "--> Decoded audio file is ready at: C:\PersonalData\Shaan\Projects\dab_automotive_decoder\build\decoded_output.wav" -ForegroundColor Green
+    Write-Host "--> Decoded audio file is ready at: build/decoded_output.wav" -ForegroundColor Green
 } else {
     Write-Error "Fatal: Application binary build target missing."
 }

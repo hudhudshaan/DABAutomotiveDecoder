@@ -71,22 +71,22 @@ ETSI TS 102 563 Superframe Stream (.au)
 ## Proposed Changes
 
 ### Component 1: Normative Scale Factor Band (`sfb`) Tables & ISO Tables
-#### [MODIFY] [`src/codec_aac/aac_tables.h`](file:///C:/PersonalData/Shaan/Projects/dab_automotive_decoder/src/codec_aac/aac_tables.h)
-#### [MODIFY] [`src/codec_aac/aac_tables.c`](file:///C:/PersonalData/Shaan/Projects/dab_automotive_decoder/src/codec_aac/aac_tables.c)
+#### [MODIFY] [`src/codec_aac/aac_tables.h`](../src/codec_aac/aac_tables.h)
+#### [MODIFY] [`src/codec_aac/aac_tables.c`](../src/codec_aac/aac_tables.c)
 - Add normative Scale Factor Band offset tables for 960-transform (`swb_offset_960`) for 48 kHz, 24 kHz, 32 kHz, 16 kHz.
 - Add complete normative Huffman codebook lookup tables for Codebooks 1 through 11 (including full 2D pairs, 4D quads, signed/unsigned mappings, and max value bounds per ISO/IEC 14496-3 Table 4.1 through 4.11).
 
 ### Component 2: Huffman & Bitstream Parser Engine
-#### [MODIFY] [`src/codec_aac/aac_huffman.h`](file:///C:/PersonalData/Shaan/Projects/dab_automotive_decoder/src/codec_aac/aac_huffman.h)
-#### [MODIFY] [`src/codec_aac/aac_huffman.c`](file:///C:/PersonalData/Shaan/Projects/dab_automotive_decoder/src/codec_aac/aac_huffman.c)
+#### [MODIFY] [`src/codec_aac/aac_huffman.h`](../src/codec_aac/aac_huffman.h)
+#### [MODIFY] [`src/codec_aac/aac_huffman.c`](../src/codec_aac/aac_huffman.c)
 - Implement full tree/LUT decoding for CB1–CB11.
 - Support unsigned codebooks with trailing sign bit unpacking.
 - Implement normative bounded escape sequence decoding for CB11 ($|v| = 16$).
 - Implement DPCM scale factor decoder according to ISO 14496-3 Table 4.6.
 
 ### Component 3: ISO/IEC 14496-3 Syntax Unpacker & Dequantizer
-#### [MODIFY] [`src/codec_aac/aac_decoder.h`](file:///C:/PersonalData/Shaan/Projects/dab_automotive_decoder/src/codec_aac/aac_decoder.h)
-#### [MODIFY] [`src/codec_aac/aac_decoder.c`](file:///C:/PersonalData/Shaan/Projects/dab_automotive_decoder/src/codec_aac/aac_decoder.c)
+#### [MODIFY] [`src/codec_aac/aac_decoder.h`](../src/codec_aac/aac_decoder.h)
+#### [MODIFY] [`src/codec_aac/aac_decoder.c`](../src/codec_aac/aac_decoder.c)
 - Implement `raw_data_block()` parsing supporting `ID_SCE` (0), `ID_CPE` (1), `ID_FIL` (6), `ID_END` (7).
 - Implement `ics_info()`: `window_sequence`, `max_sfb`, `scale_factor_grouping`.
 - Implement `section_data()`: parse variable-length section lengths and assign codebooks per sfb.
@@ -97,7 +97,7 @@ ETSI TS 102 563 Superframe Stream (.au)
 - Implement M/S stereo matrixing ($L = (M+S)/\sqrt{2}, R = (M-S)/\sqrt{2}$) when `ms_mask_present` is flagged.
 
 ### Component 4: Test Suite & Runner Verification
-#### [MODIFY] [`tests/test_ms2_aac.c`](file:///C:/PersonalData/Shaan/Projects/dab_automotive_decoder/tests/test_ms2_aac.c)
+#### [MODIFY] [`tests/test_ms2_aac.c`](../tests/test_ms2_aac.c)
 - Expand test assertions to cover section decoding, scale factor application, and dynamic range verification.
 #### [VERIFY] Re-decode `One_Voice_Children_s_Choir_-_Believer_Thunder__CeeNaija.com_.au` and verify crystal-clear singing voice and music playback in VLC.
 

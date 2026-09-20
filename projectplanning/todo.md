@@ -99,7 +99,7 @@ The file is a raw byte dump where AUs appear back-to-back:
 
 Create a clean folder dedicated to physical RF captures:
 ```text
-C:\PersonalData\Shaan\Projects\dab_automotive_decoder\test_streams\real_captures\
+test_streams\real_captures\
 ├── README.md                           # Metadata log (station name, ensemble, SNR, location)
 ├── bbc_radio1_dab_plus.au              # Real on-air DAB+ stream (HE-AAC v2 @ 48kHz)
 ├── classic_fm_dab_plus.au              # Real on-air classical music stream

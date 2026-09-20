@@ -2,8 +2,8 @@
 
 The **Automotive DAB / DAB+ Audio Decoder** engine spanning **Milestones MS-1, MS-2, MS-3, and MS-4** has been fully implemented, built, verified, and packaged into a production-ready automotive deliverable.
 
-**Target Package Directory:** `C:\PersonalData\Shaan\Projects\dab_automotive_decoder\`  
-**Standalone ZIP Package:** `C:\PersonalData\Shaan\Projects\dab_automotive_decoder_package.zip` (793 KB)
+**Target Package Directory:** `./` (Repository root)  
+**Standalone ZIP Package:** `dab_automotive_decoder_package.zip`
 
 ---
 
@@ -106,11 +106,11 @@ All 8 test executables and the test harness CLI compiled with `-Wall -Wextra -Wp
 ## 4. Documentation Package
 
 All documentation has been authored and placed in `docs/`:
-1. **API Reference Manual:** [`docs/api_reference.md`](file:///C:/PersonalData/Shaan/Projects/dab_automotive_decoder/docs/api_reference.md)
-2. **Architecture Specification:** [`docs/architecture_spec.md`](file:///C:/PersonalData/Shaan/Projects/dab_automotive_decoder/docs/architecture_spec.md)
-3. **MIPS & Memory Benchmark Report:** [`docs/mips_memory_report.md`](file:///C:/PersonalData/Shaan/Projects/dab_automotive_decoder/docs/mips_memory_report.md)
-4. **Comprehensive Test Report:** [`docs/test_report.md`](file:///C:/PersonalData/Shaan/Projects/dab_automotive_decoder/docs/test_report.md)
-5. **Root README & Guide:** [`README.md`](file:///C:/PersonalData/Shaan/Projects/dab_automotive_decoder/README.md)
+1. **API Reference Manual:** [`docs/api_reference.md`](../docs/api_reference.md)
+2. **Architecture Specification:** [`docs/architecture_spec.md`](../docs/architecture_spec.md)
+3. **MIPS & Memory Benchmark Report:** [`docs/mips_memory_report.md`](../docs/mips_memory_report.md)
+4. **Comprehensive Test Report:** [`docs/test_report.md`](../docs/test_report.md)
+5. **Root README & Guide:** [`README.md`](../README.md)
 
 ---
 

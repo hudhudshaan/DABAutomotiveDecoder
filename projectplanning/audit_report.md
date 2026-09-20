@@ -1,6 +1,6 @@
 # Automotive DAB / DAB+ Audio Decoder — Quality & Production Readiness Audit Report
-**Deliverable Package:** `C:\PersonalData\Shaan\Projects\dab_automotive_decoder\`  
-**Archive:** `C:\PersonalData\Shaan\Projects\dab_automotive_decoder_package.zip`  
+**Deliverable Package:** `./` (Repository root)  
+**Archive:** `dab_automotive_decoder_package.zip`  
 **Milestones Covered:** MS-1, MS-2 (MP2 & AAC), MS-3, MS-4  
 **Date of Audit:** September 18, 2026  
 **Audit Result:** **100% PRODUCTION READY (PASSED ALL CRITERIA)**
@@ -99,4 +99,4 @@ Every reference bitstream was processed through the test harness, and the result
 
 The **Automotive DAB / DAB+ Audio Decoder** engine has undergone rigorous scrutiny and verification across all functional, mathematical, memory safety, concurrency, and acoustic criteria. 
 
-**Certification:** The codebase in `C:\PersonalData\Shaan\Projects\dab_automotive_decoder\` and the package archive `dab_automotive_decoder_package.zip` are certified **100% PRODUCTION READY** for automotive deployment.
+**Certification:** The codebase in `./` and the package archive `dab_automotive_decoder_package.zip` are certified **100% PRODUCTION READY** for automotive deployment.
