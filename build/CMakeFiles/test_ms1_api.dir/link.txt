@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\test_ms1_api.dir/objects.a
+C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\test_ms1_api.dir/objects.a @CMakeFiles\test_ms1_api.dir\objects1.rsp
+C:\msys64\ucrt64\bin\gcc.exe -O3 -DNDEBUG -Wl,--whole-archive CMakeFiles\test_ms1_api.dir/objects.a -Wl,--no-whole-archive -o test_ms1_api.exe -Wl,--out-implib,libtest_ms1_api.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\test_ms1_api.dir\linkLibs.rsp

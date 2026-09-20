@@ -1,0 +1,9 @@
+test_ms1_api 5 0.00717976
+test_ms2_mp2 5 0.0101355
+test_ms2_aac 5 0.00885952
+test_ms3_concealment 5 0.00850412
+test_ms4_quality 5 0.0486846
+test_multi_instance 5 0.0419855
+test_robustness 5 0.00946358
+test_stress_24h 5 7.89391
+---

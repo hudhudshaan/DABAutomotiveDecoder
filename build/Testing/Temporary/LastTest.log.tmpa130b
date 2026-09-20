@@ -1,0 +1,244 @@
+Start testing: Sep 19 22:37 India Standard Time
+----------------------------------------------------------
+1/8 Testing: test_ms1_api
+1/8 Test: test_ms1_api
+Command: "C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build/test_ms1_api.exe"
+Directory: C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build
+"test_ms1_api" start time: Sep 19 22:37 India Standard Time
+Output:
+----------------------------------------------------------
+=================================================================
+  MS-1 Architecture Freeze & Static Memory API Unit Tests
+=================================================================
+
+  [PASS] DAB_Decoder_GetHandleSize(MP2) returns expected size        
+  [PASS] DAB_Decoder_GetHandleSize(AAC) returns expected size        
+  [PASS] InitWithMem rejects buffer smaller than required context size
+  [PASS] InitWithMem rejects NULL buffer                             
+  [PASS] InitWithMem rejects unsupported sample rate (44.1 kHz)      
+  [PASS] InitWithMem successfully initializes MP2 48kHz instance     
+  [PASS] SetMuteTime accepts valid timing [20ms, 100ms]              
+  [PASS] SetMuteTime rejects attack_ms < 5ms                         
+  [PASS] SetMuteTime rejects release_ms > 500ms                      
+  [PASS] SetRampCurve accepts DAB_RAMP_EXPONENTIAL                   
+  [PASS] SetRampCurve rejects invalid curve index                    
+  [PASS] SetConcealmentParam accepts valid thresholds                
+  [PASS] SetConcealmentParam rejects short >= long threshold         
+  [PASS] SetQualityRiseStep accepts valid step [4]                   
+  [PASS] SetQualityRiseStep rejects step > 10                        
+  [PASS] DAB_Decoder_Reset returns DAB_OK                            
+
+=================================================================
+  ALL 10 MS-1 TESTS PASSED
+=================================================================
+
+<end of output>
+Test time =   0.30 sec
+----------------------------------------------------------
+Test Passed.
+"test_ms1_api" end time: Sep 19 22:37 India Standard Time
+"test_ms1_api" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/8 Testing: test_ms2_mp2
+2/8 Test: test_ms2_mp2
+Command: "C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build/test_ms2_mp2.exe"
+Directory: C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build
+"test_ms2_mp2" start time: Sep 19 22:37 India Standard Time
+Output:
+----------------------------------------------------------
+=================================================================
+  MS-2a DAB MUSICAM (ISO/IEC 11172-3 Layer II) Unit Tests
+=================================================================
+
+  [PASS] MP2 decoder instance initialization (48kHz Stereo)          
+  [PASS] Stereo 48kHz frame decodes exactly 1152 samples/channel     
+  [PASS] AU status reported as DAB_AU_GOOD                           
+  [PASS] Output PCM contains non-zero synthesized audio              
+  [PASS] Joint Stereo frame decodes 1152 samples without error       
+  [PASS] Dual Channel frame decodes 1152 samples without error       
+  [PASS] 24kHz Half-Rate decodes exactly 576 samples/channel         
+
+=================================================================
+  ALL MS-2a MP2 TESTS PASSED
+=================================================================
+
+<end of output>
+Test time =   0.31 sec
+----------------------------------------------------------
+Test Passed.
+"test_ms2_mp2" end time: Sep 19 22:37 India Standard Time
+"test_ms2_mp2" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/8 Testing: test_ms2_aac
+3/8 Test: test_ms2_aac
+Command: "C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build/test_ms2_aac.exe"
+Directory: C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build
+"test_ms2_aac" start time: Sep 19 22:37 India Standard Time
+Output:
+----------------------------------------------------------
+=================================================================
+  MS-2b/c/d DAB+ HE-AAC v2 (LC + SBR + PS) Unit Tests
+=================================================================
+
+  [PASS] HE-AAC v2 decoder instance initialization (48kHz)           
+  [PASS] HE-AAC v2 frame decodes successfully                        
+  [PASS] Output sample rate is 48000 Hz                              
+  [PASS] Output is 2 channels stereo                                 
+  [PASS] AU status reported as DAB_AU_GOOD                           
+  [PASS] Mono stream with Parametric Stereo produces stereo output   
+
+=================================================================
+  ALL MS-2 AAC TESTS PASSED
+=================================================================
+
+<end of output>
+Test time =   0.63 sec
+----------------------------------------------------------
+Test Passed.
+"test_ms2_aac" end time: Sep 19 22:37 India Standard Time
+"test_ms2_aac" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/8 Testing: test_ms3_concealment
+4/8 Test: test_ms3_concealment
+Command: "C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build/test_ms3_concealment.exe"
+Directory: C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build
+"test_ms3_concealment" start time: Sep 19 22:37 India Standard Time
+Output:
+----------------------------------------------------------
+=================================================================
+  MS-3 Concealment & Soft Mute Unit Tests
+=================================================================
+
+  [PASS] Good AU reports DAB_CONCEAL_NONE                            
+  [PASS] Good AU has consec_loss = 0                                 
+  [PASS] Good AU has mute state IDLE and full gain                   
+  [PASS] 1st lost AU triggers DAB_CONCEAL_INTERPOLATE                
+  [PASS] 1st lost AU has consec_loss = 1                             
+  [PASS] 2nd lost AU maintains DAB_CONCEAL_INTERPOLATE               
+  [PASS] 2nd lost AU has consec_loss = 2                             
+  [PASS] 3rd lost AU enters DAB_CONCEAL_ATTENUATE                    
+  [PASS] 3rd lost AU has consec_loss = 3                             
+  [PASS] 6th lost AU remains in DAB_CONCEAL_ATTENUATE                
+  [PASS] 7th lost AU triggers DAB_CONCEAL_MUTED                      
+  [PASS] Recovery AU returns to DAB_CONCEAL_NONE                     
+  [PASS] Recovery AU triggers soft mute release                      
+  [PASS] Recovery AU resets consec_loss to 0                         
+
+=================================================================
+  ALL MS-3 CONCEALMENT TESTS PASSED
+=================================================================
+
+<end of output>
+Test time =   0.55 sec
+----------------------------------------------------------
+Test Passed.
+"test_ms3_concealment" end time: Sep 19 22:37 India Standard Time
+"test_ms3_concealment" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/8 Testing: test_ms4_quality
+5/8 Test: test_ms4_quality
+Command: "C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build/test_ms4_quality.exe"
+Directory: C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build
+"test_ms4_quality" start time: Sep 19 22:37 India Standard Time
+Output:
+----------------------------------------------------------
+=================================================================
+  MS-4 Quality Index & Seamless Blending Trigger Unit Tests
+=================================================================
+
+  [PASS] Initial Quality Score is 0                                  
+  [PASS] Initial Blending Trigger is BLEND_IDLE                      
+  [PASS] After 50 good frames, quality reaches maximum 100           
+  [PASS] During healthy playback, Blending Trigger is BLEND_IDLE (0b00)
+  [PASS] Single lost frame causes instant Fast-Drop to 0             
+  [PASS] Lost frame sets Blending Trigger to CONCEAL_TRIGGER (0b01)  
+  [PASS] Extended loss (>6 AUs) sets trigger to UNRECOVERABLE_TRIGGER (0b10)
+  [PASS] total_au_cnt correctly tracked (50 + 1 + 7 = 58)            
+  [PASS] crc_error_au_cnt correctly tracked (8 errors)               
+  [PASS] ResetStats resets total_au_cnt to 0                         
+  [PASS] ResetStats resets crc_error_au_cnt to 0                     
+
+=================================================================
+  ALL MS-4 QUALITY & TRIGGER TESTS PASSED
+=================================================================
+
+<end of output>
+Test time =   1.04 sec
+----------------------------------------------------------
+Test Passed.
+"test_ms4_quality" end time: Sep 19 22:37 India Standard Time
+"test_ms4_quality" time elapsed: 00:00:01
+----------------------------------------------------------
+
+6/8 Testing: test_multi_instance
+6/8 Test: test_multi_instance
+Command: "C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build/test_multi_instance.exe"
+Directory: C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build
+"test_multi_instance" start time: Sep 19 22:37 India Standard Time
+Output:
+----------------------------------------------------------
+=================================================================
+  Multi-Instance Isolation & Thread-Safety Unit Tests
+=================================================================
+
+  [PASS] Instance 1 successfully initialized                         
+  [PASS] Instance 2 successfully initialized                         
+  [PASS] Instance handles point to distinct memory regions           
+  [PASS] Instance 1 quality rises toward 80                          
+  [PASS] Instance 1 trigger is BLEND_IDLE                            
+  [PASS] Instance 1 has 0 CRC errors                                 
+  [PASS] Instance 2 quality remains 0 (muted)                        
+  [PASS] Instance 2 trigger is UNRECOVERABLE_TRIGGER                 
+  [PASS] Instance 2 has 40 CRC errors                                
+  [PASS] Instance 2 is in DAB_CONCEAL_MUTED mode                     
+  [PASS] Resetting Instance 2 does NOT affect Instance 1 total_au_cnt
+  [PASS] Resetting Instance 2 does NOT affect Instance 1 crc_error_au_cnt
+
+=================================================================
+  ALL MULTI-INSTANCE ISOLATION TESTS PASSED
+=================================================================
+
+<end of output>
+Test time =   1.11 sec
+----------------------------------------------------------
+Test Passed.
+"test_multi_instance" end time: Sep 19 22:37 India Standard Time
+"test_multi_instance" time elapsed: 00:00:01
+----------------------------------------------------------
+
+7/8 Testing: test_robustness
+7/8 Test: test_robustness
+Command: "C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build/test_robustness.exe"
+Directory: C:/PersonalData/Shaan/Projects/dab_automotive_decoder/build
+"test_robustness" start time: Sep 19 22:37 India Standard Time
+Output:
+----------------------------------------------------------
+=================================================================
+  Automotive Robustness & Fuzzing Handling Unit Tests
+=================================================================
+
+  [PASS] Decoder instance successfully created                       
+  [PASS] DecodeAU with NULL handle returns DAB_ERR_NULL_HANDLE       
+  [PASS] DecodeAU with NULL pcm_out returns DAB_ERR_NULL_HANDLE      
+  [PASS] DecodeAU with 0 length safely conceals and returns sample count
+  [PASS] Status reports DAB_AU_LOST on 0 length input                
+  [PASS] DecodeAU with < 3 bytes safely conceals as lost AU          
+  [PASS] Survived 1,000 frames of random bitstream fuzzing without crash
+  [PASS] Baseband signal au_crc_pass=0 directly triggers CRC_ERR     
+
+=================================================================
+  ALL ROBUSTNESS & FUZZING TESTS PASSED
+=================================================================
+
+<end of output>
+Test time =   0.60 sec
+----------------------------------------------------------
+Test Passed.
+"test_robustness" end time: Sep 19 22:37 India Standard Time
+"test_robustness" time elapsed: 00:00:00
+----------------------------------------------------------
+
